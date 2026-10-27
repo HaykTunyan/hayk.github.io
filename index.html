@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,218 +8,273 @@
 <meta property="og:title" content="Hayk Tunyan — Software Engineer | Frontend • Mobile • Backend">
 <meta property="og:description" content="8 years building scalable web and mobile products. Based in Yerevan, Armenia.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧱</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%237c8cff%22/><text x=%2250%22 y=%2268%22 font-size=%2254%22 font-weight=%22700%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22>H</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --paper:#F1F3F9; --surface:#FFFFFF; --ink:#151A2E; --muted:#555C75;
-  --line:#D5DAE8; --blue:#2E3FE0; --blue-ink:#FFFFFF; --tint:#E3E7FB;
-  color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --paper:#0F1322; --surface:#171C31; --ink:#EDEFF8; --muted:#A3A9C2;
-    --line:#2A3050; --blue:#7C8BFF; --blue-ink:#0F1322; --tint:#222949; color-scheme:dark;
-  }
-}
+:root{--bg:#0b0b0c;--alt:#101012;--card:#141416;--line:#242428;--text:#ececf0;--muted:#8d8d98;--dim:#6b6b75;--accent:#8f9cff;--btn:#f4f4f6;--btn-ink:#0b0b0c}
+[data-theme="light"]{--bg:#fafafb;--alt:#f2f2f5;--card:#ffffff;--line:#e3e3e8;--text:#16161a;--muted:#5d5d68;--dim:#7c7c87;--accent:#4a5bf0;--btn:#16161a;--btn-ink:#ffffff}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);
-  font:400 1.0625rem/1.65 "Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;
-  padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
-.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
-header.top{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0}
-header.top b{font-weight:800;font-size:1.15rem}
-nav a{margin-left:1.4rem;text-decoration:none;color:var(--muted);font-weight:600}
-nav a:hover{color:var(--blue)}
-.hero{padding:4rem 0 3rem}
-h1{font-weight:800;font-size:clamp(2.6rem,8vw,5.6rem);line-height:1;letter-spacing:-.035em;margin:0 0 1.5rem;max-width:14ch}
-.role{margin:0 0 1rem;font-weight:600;color:var(--blue);font-size:1.1rem}
-.lede{font-size:1.25rem;max-width:38rem;color:var(--muted);margin:0 0 2rem}
-.btns{display:flex;gap:.8rem;flex-wrap:wrap}
-.btn{display:inline-block;padding:.8rem 1.3rem;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid var(--blue)}
-.btn.main{background:var(--blue);color:var(--blue-ink)}
-.btn.alt{color:var(--blue)}
-section{padding:3.5rem 0;border-top:1px solid var(--line)}
-h2{font-weight:800;font-size:clamp(1.7rem,4vw,2.4rem);letter-spacing:-.02em;margin:0 0 .6rem}
-.sub{color:var(--muted);max-width:40rem;margin:0 0 2rem}
-
-/* Layer stack: the one memorable element */
-.stack{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:2rem;align-items:start}
-.layers{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
-.layers button{width:100%;text-align:left;font:inherit;font-weight:600;color:var(--ink);cursor:pointer;
-  background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.7rem 1rem;
-  transition:transform .15s,background .15s}
-.layers li:nth-child(1) button{margin-left:0}
-.layers li:nth-child(2) button{margin-left:.9rem;width:calc(100% - .9rem)}
-.layers li:nth-child(3) button{margin-left:1.8rem;width:calc(100% - 1.8rem)}
-.layers li:nth-child(4) button{margin-left:2.7rem;width:calc(100% - 2.7rem)}
-.layers li:nth-child(5) button{margin-left:3.6rem;width:calc(100% - 3.6rem)}
-.layers li:nth-child(6) button{margin-left:4.5rem;width:calc(100% - 4.5rem)}
-.layers button[aria-pressed="true"]{background:var(--blue);color:var(--blue-ink);border-color:var(--blue);transform:translateX(6px)}
-.panel{background:var(--tint);border-radius:14px;padding:1.5rem 1.6rem;min-height:11rem}
-.panel h3{margin:0 0 .4rem;font-size:1.3rem}
-.panel p{margin:0;color:var(--muted)}
-.note{font-size:.95rem;color:var(--muted);margin-top:1rem}
-
-.jobs{list-style:none;margin:0;padding:0}
-.jobs li{display:grid;grid-template-columns:11rem 1fr;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line)}
-.jobs li:last-child{border-bottom:0}
-.when{color:var(--muted);font-variant-numeric:tabular-nums}
-.jobs b{font-weight:600}
-.jobs ul{margin:.4rem 0 .3rem;padding-left:1.1rem;color:var(--muted)}.jobs .tech{font-size:.95rem;color:var(--muted)}.works{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:0;padding:0;list-style:none}.works li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem}.works a{display:block;height:100%;text-decoration:none;color:inherit;border-radius:12px;margin:-1.1rem -1.2rem;padding:1.1rem 1.2rem;transition:background .15s}.works a:hover{background:var(--tint)}.works b{display:block;font-size:1.1rem}.works span{color:var(--muted)}@media (max-width:46rem){.works{grid-template-columns:1fr}}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0;list-style:none}
-.chips li{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.35rem .9rem;font-weight:600}
-.chips.core li{border-color:var(--blue);color:var(--blue)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
-h3.s{font-size:1.05rem;margin:0 0 .8rem}
-footer{padding:2.5rem 0 3.5rem;color:var(--muted);border-top:1px solid var(--line)}
-footer .links a{margin-right:1.4rem;font-weight:600;color:var(--blue)}
-@media (max-width:46rem){
-  .stack,.two{grid-template-columns:1fr}
-  .jobs li{grid-template-columns:1fr;gap:.2rem}
-  nav a{margin-left:1rem}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--bg);color:var(--text);font:400 .95rem/1.6 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:56rem;margin:0 auto;padding:0 1.5rem}
+header.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:3.4rem}
+.logo{width:2rem;height:2rem;border-radius:8px;background:var(--accent);color:var(--bg);display:grid;place-items:center;font-weight:700}
+nav{display:flex;gap:1.4rem;font-size:.8rem;color:var(--muted)}
+nav a:hover{color:var(--text)}
+.tools{display:flex;gap:.6rem;align-items:center}
+.icon{width:2rem;height:2rem;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;font-size:.95rem}
+.cv{background:var(--btn);color:var(--btn-ink);font-weight:600;font-size:.78rem;padding:.5rem .9rem;border-radius:8px}
+.hero{display:flex;gap:2rem;align-items:center;padding:3.2rem 0 3rem;border-bottom:1px solid var(--line)}
+.avatar{flex:none;width:6rem;height:6rem;border-radius:50%;background:linear-gradient(135deg,var(--accent),#c3a4ff);color:#fff;display:grid;place-items:center;font-size:1.9rem;font-weight:700}
+h1{margin:0;font-size:1.9rem;line-height:1.15;letter-spacing:-.02em;font-weight:700}
+.role{margin:.2rem 0 1.1rem;color:var(--muted)}
+.meta{display:grid;grid-template-columns:5rem 1fr;gap:.35rem 1rem;font-size:.82rem;margin:0}
+.meta dt{color:var(--dim);letter-spacing:.08em;font-size:.68rem;text-transform:uppercase;padding-top:.15rem}
+.meta dd{margin:0}
+.meta a:hover{color:var(--accent)}
+.summary{max-width:41rem;color:var(--muted);padding:2.6rem 0 3rem;margin:0;line-height:1.85}
+.label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0 0 2.2rem}
+section.blk{padding:3.4rem 0}
+section.alt{background:var(--alt)}
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:12rem 1fr;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--line)}
+.when{color:var(--dim);font-size:.8rem}
+.row h3{margin:0;font-size:1rem;font-weight:600}
+.row .sub{margin:.1rem 0 .8rem;color:var(--muted);font-size:.85rem}
+.row ul{margin:0;padding:0;list-style:none}
+.row li{position:relative;padding-left:1.1rem;color:var(--muted);font-size:.84rem;margin:.35rem 0}
+.row li::before{content:"";position:absolute;left:.1rem;top:.7em;width:4px;height:4px;border-radius:50%;background:var(--dim)}
+.tech{margin:.8rem 0 0;font-size:.78rem;color:var(--dim)}
+.row h3 a:hover{color:var(--accent)}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+.skills div{display:flex;align-items:center;gap:.7rem;padding:.85rem 1rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:.84rem}
+.skills div:nth-child(4n){border-right:0}
+.skills div:nth-last-child(-n+4){border-bottom:0}
+.skills i{flex:none;width:1.3rem;height:1.3rem;border-radius:5px;font-style:normal;font-size:.55rem;font-weight:700;display:grid;place-items:center;color:#fff}
+.skills .stat{display:block;background:var(--alt)}
+.stat b{display:block;font-size:1.4rem;line-height:1.1}
+.stat span{font-size:.7rem;color:var(--dim)}
+.ind{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+.ind div{display:flex;gap:1rem;padding:1.05rem 1.2rem;border-bottom:1px solid var(--line);border-right:1px solid var(--line);font-size:.88rem}
+.ind div:nth-child(2n){border-right:0}
+.ind div:nth-last-child(-n+2){border-bottom:0}
+.ind small{color:var(--dim);font-size:.7rem;padding-top:.2rem}
+footer{border-top:1px solid var(--line);padding:1.6rem 0;color:var(--dim);font-size:.78rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+footer a{margin-left:1.2rem}footer a:hover{color:var(--text)}
+@media (max-width:48rem){
+  nav{display:none}
+  .hero{flex-direction:column;align-items:flex-start;gap:1.2rem}
+  .row{grid-template-columns:1fr;gap:.3rem}
+  .skills{grid-template-columns:repeat(2,1fr)}
+  .skills div,.skills div:nth-child(4n){border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .skills div:nth-child(2n){border-right:0}
+  .skills div:nth-last-child(-n+4){border-bottom:1px solid var(--line)}
+  .skills div:nth-last-child(-n+2){border-bottom:0}
+  .ind{grid-template-columns:1fr}
+  .ind div,.ind div:nth-child(2n){border-right:0;border-bottom:1px solid var(--line)}
+  .ind div:last-child{border-bottom:0}
+  footer a{margin:0 1.2rem 0 0}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* polish */
+body::before{content:"";position:fixed;inset:0 0 auto 0;height:28rem;pointer-events:none;z-index:-1;background:radial-gradient(60% 100% at 50% 0%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 70%)}
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:20}
+h1{font-size:clamp(2rem,5vw,2.6rem);letter-spacing:-.03em}
+.role{color:var(--accent);font-weight:500;font-size:1rem}
+.avatar{position:relative;overflow:hidden;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--line)}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:2.4rem 0 0}
+.stats div{background:var(--card);padding:1.1rem 1.2rem}
+.stats b{display:block;font-size:1.5rem;letter-spacing:-.02em;line-height:1.2}
+.stats span{font-size:.74rem;color:var(--dim)}
+.summary{padding:2.4rem 0 3rem}
+nav a{position:relative;padding:.2rem 0;transition:color .2s}
+nav a.on{color:var(--text)}
+nav a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1.05rem;height:2px;background:var(--accent)}
+.cv,.icon{transition:transform .15s,opacity .15s}
+.cv:hover{opacity:.88;transform:translateY(-1px)}
+.icon:hover{border-color:var(--accent)}
+.row{transition:background .2s;margin:0 -1rem;padding-left:1rem;padding-right:1rem;border-radius:10px}
+.row:hover{background:color-mix(in srgb,var(--card) 70%,transparent)}
+.skills div{transition:background .15s}
+.skills div:hover:not(.stat){background:var(--alt)}
+.ind div{transition:background .15s}
+.ind div:hover{background:var(--alt)}
+.ind small{color:var(--accent)}
+.label{display:flex;align-items:center;gap:.8rem}
+.label::after{content:"";flex:1;height:1px;background:var(--line)}
+.rows{border-top:0}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+#up{position:fixed;right:1.2rem;bottom:1.2rem;width:2.4rem;height:2.4rem;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s}
+#up.show{opacity:1;pointer-events:auto}
+@media (max-width:48rem){.stats{grid-template-columns:1fr 1fr}.row{margin:0;padding-left:0;padding-right:0}nav a.on::after{display:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media print{header.bar,#up,#progress{display:none}body::before{display:none}}
 </style>
 </head>
 <body>
+<div id="progress"></div>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="#top" aria-label="Top">H</a>
+  <nav aria-label="Main"><a href="#work">Work</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#industry">Industry</a></nav>
+  <div class="tools">
+    <button class="icon" id="theme" type="button" aria-label="Toggle theme">☀</button>
+    <a class="cv" href="CV_Hayk_Tunyan.pdf" download>Download CV</a>
+  </div>
+</div></header>
+
+<main id="top">
 <div class="wrap">
-  <header class="top">
-    <b>Hayk Tunyan</b>
-    <nav aria-label="Main"><a href="#architecture">Architecture</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#stack">Stack</a><a href="#contact">Contact</a></nav>
-  </header>
-
-  <main>
-    <div class="hero">
+  <div class="hero">
+    <div class="avatar" aria-hidden="true">HT<img src="photo.jpg" alt="" onerror="this.remove()"></div>
+    <div>
+      <h1>Hayk Tunyan</h1>
       <p class="role">Software Engineer | Frontend • Mobile • Backend</p>
-      <h1>Software that stays maintainable.</h1>
-      <p class="lede">I’m Hayk Tunyan, a software engineer in Yerevan, Armenia. For 8 years I’ve built scalable web and mobile products in fintech, e-commerce and marketplaces, CRM and healthcare.</p>
-      <div class="btns">
-        <a class="btn main" href="#contact">Get in touch</a>
-        <a class="btn alt" href="#experience">See experience</a>
-      </div>
+      <dl class="meta">
+        <dt>Location</dt><dd>Yerevan, Armenia</dd>
+        <dt>Email</dt><dd><a href="mailto:hayktunyan00@gmail.com">hayktunyan00@gmail.com</a></dd>
+        <dt>Phone</dt><dd><a href="tel:+37477222797">(+374) 77 222 797</a></dd>
+      </dl>
     </div>
-
-    <section id="architecture">
-      <h2>How I structure large apps</h2>
-      <p class="sub">I work with NX monorepos, micro-frontends and Feature-Sliced Design. Pick a layer to see its job.</p>
-      <div class="stack">
-        <ul class="layers" id="layers"></ul>
-        <div class="panel" id="panel" aria-live="polite"></div>
-      </div>
-      <p class="note">Each layer may only import from the layers below it. That one rule keeps big codebases easy to change.</p>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <p class="sub">Most recent first.</p>
-      <ul class="jobs">
-        <li><span class="when">May 2025 – May 2026</span><span><b>Senior Front-End &amp; React Native Engineer, Pixeria</b>
-          <ul><li>Built full-stack web and mobile products on Angular, Node.js and NestJS, with shared service layers and a feature-driven architecture.</li>
-          <li>Built cross-platform React Native apps with reusable component systems, and covered critical flows with Cypress and unit tests.</li>
-          <li>Brought AI-assisted tools (Tusk AI) into the engineering workflow, for a 3–4-fold gain in development and release efficiency.</li></ul>
-          <span class="tech">React, React Native, TypeScript, Redux Toolkit, Jest, Angular, Web3</span></span></li>
-        <li><span class="when">Sep 2023 – Feb 2025</span><span><b>Front-End Engineer, Telcell Market</b>
-          <ul><li>Merged several marketplace apps into one Nx monorepo, cutting duplicated code.</li>
-          <li>Integrated banking APIs and payments, and built the MJML transactional email template system from scratch.</li></ul>
-          <span class="tech">React, Next.js, TypeScript, Redux Toolkit, TanStack Query, Jest, MJML</span></span></li>
-        <li><span class="when">Aug 2022 – Aug 2023</span><span><b>React Native Developer, Eachbase Digital Agency</b>
-          <ul><li>Shipped an offline-first React Native app used by 100,000+ people, and served media through AWS CloudFront.</li></ul>
-          <span class="tech">React Native, React, JavaScript, Redux, Firebase, AWS</span></span></li>
-        <li><span class="when">Jan 2021 – Aug 2022</span><span><b>React Developer, Orders.co</b>
-          <ul><li>Connected restaurant ordering APIs with real-time data over Socket.IO, and sped up load times with code splitting and lazy loading.</li></ul>
-          <span class="tech">React, Next.js, TypeScript, Redux, Jest</span></span></li>
-        <li><span class="when">Sep 2018 – Nov 2020</span><span><b>Angular Developer, Menu Group UK LTD</b>
-          <ul><li>Built Angular 2+ applications, including a custom Gmail-style inbox interface, with Karma tests in the workflow.</li></ul>
-          <span class="tech">Angular, TypeScript, RxJS, Karma</span></span></li>
-      </ul>
-    </section>
-
-    <section id="work">
-      <h2>Selected work</h2>
-      <p class="sub">Products I’ve built. Tap one to open it.</p>
-      <ul class="works">
-        <li><a href="https://loyalsclub.com/en/" target="_blank" rel="noopener"><b>LoyalsClub ↗</b><span>Customer-retention and loyalty software for salons, clinics, cafés and gyms.</span></a></li>
-        <li><a href="https://dospace.com/" target="_blank" rel="noopener"><b>DoSpace ↗</b><span>Enterprise workspace platform with 3D and AI-powered interior visualization, serving about 20 million users. React, TypeScript.</span></a></li>
-        <li><a href="https://apps.apple.com/vn/app/therapylake/id6450555754" target="_blank" rel="noopener"><b>TherapyLake Mobile ↗</b><span>Healthcare mobile platform on the App Store. React Native, AWS CloudFront.</span></a></li>
-        <li><a href="https://apps.apple.com/us/app/360-photo-cam/id6470239030" target="_blank" rel="noopener"><b>360 Photo Cam ↗</b><span>Cross-platform 360° photography app with a custom capture and stitching pipeline. React Native, Gyroscope API.</span></a></li>
-      </ul>
-    </section>
-
-    <section id="stack">
-      <h2>Stack</h2>
-      <p class="sub">The first group is what I reach for first.</p>
-      <div class="two">
-        <div>
-          <h3 class="s">Primary</h3>
-          <ul class="chips core"><li>React</li><li>Next.js</li><li>React Native</li><li>TypeScript</li><li>Angular</li></ul>
-          <h3 class="s" style="margin-top:1.4rem">State and data</h3>
-          <ul class="chips"><li>Redux Toolkit</li><li>TanStack Query</li><li>Zustand</li><li>REST</li><li>WebSockets</li></ul>
-          <h3 class="s" style="margin-top:1.4rem">Also worked with</h3>
-          <ul class="chips"><li>Vue/Nuxt</li><li>Node.js</li><li>NestJS</li><li>Three.js</li><li>PixiJS</li><li>Flutter</li></ul>
-        </div>
-        <div>
-          <h3 class="s">Architecture</h3>
-          <ul class="chips"><li>Nx Monorepos</li><li>Micro-Frontend</li><li>Feature-Sliced Design</li><li>Component-Driven Design</li><li>SOLID</li></ul>
-          <h3 class="s" style="margin-top:1.4rem">UI and tooling</h3>
-          <ul class="chips"><li>Material UI</li><li>Tailwind CSS</li><li>Ant Design</li><li>Storybook</li><li>CI/CD</li><li>Firebase</li><li>AWS CloudFront</li></ul>
-          <h3 class="s" style="margin-top:1.4rem">Testing</h3>
-          <ul class="chips"><li>Jest</li><li>React Testing Library</li><li>Cypress</li><li>Karma</li></ul>
-          <h3 class="s" style="margin-top:1.4rem">Code quality</h3>
-          <ul class="chips"><li>ESLint</li><li>Prettier</li><li>GitLab CI/CD</li><li>Docker</li></ul>
-          <h3 class="s" style="margin-top:1.4rem">AI tools</h3>
-          <ul class="chips"><li>Claude Code</li><li>GitHub Copilot</li><li>Tusk AI</li><li>BlackBox AI</li></ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <h2>Education and languages</h2>
-      <p class="sub" style="margin:0 0 .6rem">Master of Library and Information Science (Informatics and Computer Science), National Polytechnic University of Armenia, 2011–2017.</p>
-      <p class="sub" style="margin:0">Armenian (native), English (professional), Russian (professional).</p>
-    </section>
-  </main>
-
-  <footer id="contact">
-    <h2>Contact</h2>
-    <p>Software Engineer | Frontend • Mobile • Backend. Open to conversations about roles and projects.</p>
-    <p class="links">
-      <!-- TODO: replace the placeholders below with your real links -->
-      <a href="mailto:hayktunyan00@gmail.com">hayktunyan00@gmail.com</a>
-      <a href="https://github.com/your-username">GitHub</a>
-      <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a>
-    </p>
-  </footer>
+  </div>
+  <div class="stats">
+    <div><b>8+</b><span>years of experience</span></div>
+    <div><b>5</b><span>companies</span></div>
+    <div><b>30+</b><span>Projects Completed</span></div>
+    <div><b>16</b><span>Tech Stack</span></div>
+  </div>
+  <p class="summary">Software engineer with 8 years of experience building scalable, high-performance web and mobile applications across fintech, e-commerce and marketplaces, CRM and healthcare. Specialized in front-end engineering and end-to-end product delivery, from system architecture and integrations to performance, testing and production. Strong in React, Next.js, React Native and Angular, with Node.js and NestJS on the backend, and experienced with Nx monorepos, micro-frontends and Feature-Sliced Design.</p>
 </div>
 
+<section class="blk" id="work"><div class="wrap">
+  <p class="label">Work experience</p>
+  <div class="rows">
+    <div class="row"><div class="when">May 2025 — May 2026</div><div>
+      <h3>Pixeria</h3><p class="sub">Senior Front-End &amp; React Native Engineer</p>
+      <ul>
+        <li>Built full-stack web and mobile products with Angular, Node.js and NestJS, using shared service layers and a feature-driven architecture.</li>
+        <li>Built cross-platform React Native apps with reusable component systems for consistent iOS and Android experiences.</li>
+        <li>Covered critical user flows with Cypress end-to-end tests and unit tests.</li>
+        <li>Brought AI-assisted tools (Tusk AI) into the engineering workflow, for a 3–4-fold gain in development and release efficiency.</li>
+      </ul>
+      <p class="tech">React, React Native, TypeScript, Redux Toolkit, Jest, Angular, Web3</p></div></div>
+    <div class="row"><div class="when">Sep 2023 — Feb 2025</div><div>
+      <h3>Telcell Market</h3><p class="sub">Front-End Engineer</p>
+      <ul>
+        <li>Consolidated several marketplace apps into one Nx monorepo, cutting duplicated code and improving maintainability.</li>
+        <li>Integrated banking APIs and payment services, improving the checkout experience.</li>
+        <li>Built the company’s MJML transactional email template system from scratch.</li>
+        <li>Wrote Jest unit tests to make the code easier to debug and maintain.</li>
+      </ul>
+      <p class="tech">React, Next.js, TypeScript, Redux Toolkit, TanStack Query, Jest, MJML</p></div></div>
+    <div class="row"><div class="when">Aug 2022 — Aug 2023</div><div>
+      <h3>Eachbase Digital Agency</h3><p class="sub">React Native Developer</p>
+      <ul>
+        <li>Developed production React Native apps across the full lifecycle, from API integration to App Store release.</li>
+        <li>Shipped an offline-first app used by 100,000+ people in low-connectivity environments.</li>
+        <li>Integrated AWS CloudFront to deliver videos, images and files at scale.</li>
+      </ul>
+      <p class="tech">React Native, React, JavaScript, Redux, Firebase, AWS</p></div></div>
+    <div class="row"><div class="when">Jan 2021 — Aug 2022</div><div>
+      <h3>Orders.co</h3><p class="sub">React Developer</p>
+      <ul>
+        <li>Built React applications with Redux, REST APIs and Socket.IO for real-time communication.</li>
+        <li>Connected external restaurant APIs and real-time data flows for menu, order and customer-facing features.</li>
+        <li>Improved load performance with code splitting, lazy loading and rendering optimization.</li>
+      </ul>
+      <p class="tech">React, Next.js, JavaScript, TypeScript, Redux, Jest</p></div></div>
+    <div class="row"><div class="when">Sep 2018 — Nov 2020</div><div>
+      <h3>Menu Group UK LTD</h3><p class="sub">Angular Developer</p>
+      <ul>
+        <li>Developed and maintained multiple Angular 2+ applications in TypeScript.</li>
+        <li>Built a custom Gmail-style inbox interface for web applications.</li>
+        <li>Added Karma tests to the workflow to reduce regressions across releases.</li>
+      </ul>
+      <p class="tech">Angular 2+, TypeScript, RxJS, JavaScript, HTML, CSS, Karma</p></div></div>
+  </div>
+</div></section>
+
+<section class="blk alt" id="projects"><div class="wrap">
+  <p class="label">Selected work</p>
+  <div class="rows">
+    <div class="row"><div class="when">Web</div><div><h3><a href="https://loyalsclub.com/en/" target="_blank" rel="noopener">LoyalsClub ↗</a></h3><p class="sub">Customer-retention and loyalty software for salons, clinics, cafés and gyms.</p></div></div>
+    <div class="row"><div class="when">Web</div><div><h3><a href="https://dospace.com/" target="_blank" rel="noopener">DoSpace ↗</a></h3><p class="sub">Enterprise workspace platform with 3D and AI-powered interior visualization, serving about 20 million users. React, TypeScript.</p></div></div>
+    <div class="row"><div class="when">Mobile · iOS</div><div><h3><a href="https://apps.apple.com/vn/app/therapylake/id6450555754" target="_blank" rel="noopener">TherapyLake Mobile ↗</a></h3><p class="sub">Healthcare mobile platform. React Native, AWS CloudFront.</p></div></div>
+    <div class="row"><div class="when">Mobile · iOS</div><div><h3><a href="https://apps.apple.com/us/app/360-photo-cam/id6470239030" target="_blank" rel="noopener">360 Photo Cam ↗</a></h3><p class="sub">Cross-platform 360° photography app with a custom capture and stitching pipeline. React Native, Gyroscope API.</p></div></div>
+  </div>
+</div></section>
+
+<section class="blk" id="education"><div class="wrap">
+  <p class="label">Education</p>
+  <div class="rows">
+    <div class="row"><div class="when">2011 — 2017</div><div><h3>National Polytechnic University of Armenia</h3><p class="sub" style="margin:.1rem 0 0">Master of Library and Information Science, Informatics and Computer Science</p></div></div>
+    <div class="row"><div class="when">Languages</div><div><p class="sub" style="margin:0">Armenian (native) · English (professional) · Russian (professional)</p></div></div>
+  </div>
+</div></section>
+
+<section class="blk alt" id="skills"><div class="wrap">
+  <p class="label">Skills</p>
+  <div class="skills" id="skillGrid"></div>
+</div></section>
+
+<section class="blk" id="industry"><div class="wrap">
+  <p class="label">Industry knowledge</p>
+  <div class="ind" id="indGrid"></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© Hayk Tunyan</span>
+  <span><!-- TODO: replace with your real links --><a href="https://github.com/YOUR-USERNAME">GitHub</a><a href="https://www.linkedin.com/in/YOUR-PROFILE">LinkedIn</a></span>
+</div></footer>
+<button id="up" type="button" aria-label="Back to top">↑</button>
+
 <script>
-const layers=[
-  ["app","Everything that runs the whole application: routing, providers, global styles and initialization."],
-  ["pages","One slice per screen. A page composes widgets and features and holds very little logic of its own."],
-  ["widgets","Large, self-contained blocks of UI, such as a header, an order table or a seller dashboard panel."],
-  ["features","One user action with business value, such as adding to cart, filtering a list or placing a bid."],
-  ["entities","Business concepts like user, product or order: their types, API calls and small display components."],
-  ["shared","Code with no business knowledge: UI kit, API client, helpers and config. Reused by every layer above."]
-];
-const list=document.getElementById("layers"),panel=document.getElementById("panel");
-function show(i){
-  [...list.querySelectorAll("button")].forEach((b,j)=>b.setAttribute("aria-pressed",String(i===j)));
-  panel.innerHTML="<h3></h3><p></p>";
-  panel.querySelector("h3").textContent=layers[i][0];
-  panel.querySelector("p").textContent=layers[i][1];
-}
-layers.forEach((l,i)=>{
-  const li=document.createElement("li"),b=document.createElement("button");
-  b.type="button";b.textContent=l[0];b.setAttribute("aria-pressed","false");
-  b.addEventListener("click",()=>show(i));
-  li.appendChild(b);list.appendChild(li);
+const skills=["JavaScript","TypeScript","React","React Native","Next.js","Angular","Expo","Redux Toolkit","TanStack Query","Zustand","Node.js","NestJS","Tailwind CSS","Material UI","Ant Design","Storybook","Jest","Cypress","ESLint","Prettier","GitLab CI/CD","Docker","AWS CloudFront"];
+const industry=["Front-end Development","Mobile Development with React Native","Nx Monorepos & Micro-Frontends","Design Patterns & SOLID Principles","Testing & Code Quality","API & Payment Integrations","Real-time Applications (WebSockets)","AI-assisted Development","Cloud Delivery & CI/CD","Web3 Integration"];
+const sg=document.getElementById("skillGrid");
+skills.forEach(s=>{
+  const d=document.createElement("div"),i=document.createElement("i");
+  let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;
+  i.style.background="hsl("+h+" 55% 45%)";
+  i.textContent=s.replace(/[^A-Za-z]/g,"").slice(0,2);
+  d.append(i,document.createTextNode(s));sg.appendChild(d);
 });
-show(0);
+const st=document.createElement("div");st.className="stat";
+st.innerHTML="<b>8+</b><span>years of experience</span>";sg.appendChild(st);
+const ig=document.getElementById("indGrid");
+industry.forEach((t,n)=>{
+  const d=document.createElement("div"),s=document.createElement("small");
+  s.textContent=String(n+1).padStart(2,"0");d.append(s,document.createTextNode(t));ig.appendChild(d);
+});
+const root=document.documentElement,btn=document.getElementById("theme");
+function setTheme(t){root.dataset.theme=t;btn.textContent=t==="dark"?"☀":"☾"}
+let saved=null;try{saved=localStorage.getItem("theme")}catch(e){}
+setTheme(saved||"dark");
+btn.addEventListener("click",()=>{
+  const t=root.dataset.theme==="dark"?"light":"dark";setTheme(t);
+  try{localStorage.setItem("theme",t)}catch(e){}
+});
+
+const prog=document.getElementById("progress"),up=document.getElementById("up");
+function onScroll(){const h=document.documentElement,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?h.scrollTop/m*100:0)+"%";up.classList.toggle("show",h.scrollTop>600)}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
+up.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+const links=[...document.querySelectorAll("nav a")];
+if("IntersectionObserver" in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.08});
+  document.querySelectorAll(".blk .wrap,.stats").forEach(el=>{el.classList.add("reveal");io.observe(el)});
+  const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id))}}),{rootMargin:"-45% 0px -50% 0px"});
+  document.querySelectorAll("section.blk").forEach(el=>so.observe(el));
+}
 </script>
 </body>
 </html>
